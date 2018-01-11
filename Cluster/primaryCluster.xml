@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cluster name="primaryCluster" description="this is primary cluster" colo="primaryColo" xmlns="uri:falcon:cluster:0.1">
+    <tags>primaryKey=primaryValue</tags>
+    <interfaces>
+        <interface type="readonly" endpoint="hftp://sandbox-hdp.hortonworks.com:50070" version="2.2.0"/>
+        <interface type="write" endpoint="hdfs://sandbox-hdp.hortonworks.com:8020" version="2.2.0"/>
+        <interface type="execute" endpoint="sandbox-hdp.hortonworks.com:8032" version="2.2.0"/>
+        <interface type="workflow" endpoint="http://sandbox-hdp.hortonworks.com:11000/oozie/" version="4.0.0"/>
+        <interface type="messaging" endpoint="tcp://sandbox-hdp.hortonworks.com:61616?daemon=true" version="5.1.6"/>
+    </interfaces>
+    <locations>
+        <location name="staging" path="/apps/falcon/primaryCluster/staging"/>
+        <location name="temp" path="/tmp"/>
+        <location name="working" path="/apps/falcon/primaryCluster/working"/>
+    </locations>
+    <ACL owner="ambari-qa" group="users" permission="0x755"/>
+    <properties>
+        <property name="test" value="value1"/>
+    </properties>
+</cluster>
